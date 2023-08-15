@@ -1,0 +1,14 @@
+REGISTRATION:
+/registration - you need to input username, password, email and about_me field.
+/verify - you need to input email and OTP code that you got on your email
+
+
+USAGE:
+/auth/jwt/create - endpoint, where you got your JWT
+/auth/jwt/refresh - endpoint, where you can refresh your JWT
+/api/users - all users (only authorized users can see)
+/auth/users/me - fetching user profile (
+    DELETE METHOD - input password, and you will delete your user,
+    PATCH/PUT METHOD - input one/all colomn to change in your user account,
+)
+last 2 endpoints work correctly, only if you add Authorization header, which /auth/jwt/create gives you
