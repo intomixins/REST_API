@@ -89,26 +89,18 @@ WSGI_APPLICATION = 'rest.wsgi.application'
 #         'PORT': os.getenv('PORT')
 #     }
 # }
-DB_SQLITE = "sqlite"
-DB_POSTGRESQL = "postgresql"
 
-DATABASES_ALL = {
-    DB_SQLITE: {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
-    DB_POSTGRESQL: {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": os.environ.get("POSTGRES_HOST", "localhost"),
-        "NAME": os.environ.get("POSTGRES_NAME", "postgres"),
-        "USER": os.environ.get("POSTGRES_USER", "postgres"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "postgres"),
-        "PORT": int(os.environ.get("POSTGRES_PORT", "5432")),
-    },
+
+DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': "channels_redis.core.RedisChannelLayer",
+        'CONFIG': {
+            'hosts': [os.getenv('REDIS_URL'), 'redis://localhost:6379']
+        }
+    }
 }
-
-DATABASES = {"default": DATABASES_ALL[os.environ.get("DJANGO_DB", DB_SQLITE)]}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
