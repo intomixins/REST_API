@@ -1,3 +1,4 @@
+python==3.11.4
 amqp==5.1.1
 asgiref==3.7.2
 billiard==4.1.0
