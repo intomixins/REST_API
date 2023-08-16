@@ -91,7 +91,10 @@ WSGI_APPLICATION = 'rest.wsgi.application'
 # }
 
 
-DATABASES = {"default": dj_database_url.parse(os.getenv("DATABASE_URL"))}
+DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASES = {
+    'default': dj_database_url.config(),
+}
 
 CHANNEL_LAYERS = {
     'default': {
