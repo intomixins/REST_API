@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2ff06d8a-6381-4b62-a511-b5fe4e3b23f8" name="Changes" comment="gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rest/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest/rest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest/rest/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/python_dateutil-2.8.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/python_dateutil-2.8.2.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/python_dateutil-2.8.2.dist-info/REQUESTED" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +18,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2U21Qk7Zx0RnStaQOEmfNPIkSfv" />
   <component name="ProjectLevelVcsManager">
@@ -34,7 +40,10 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/rest" />
+      <recent name="$PROJECT_DIR$/rest/docker/rest" />
+      <recent name="$PROJECT_DIR$/rest/docker" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
