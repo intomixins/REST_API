@@ -1,3 +1,0 @@
-release: python manage.py migrate
-web: gunicorn rest.wsgi --log-files=-
-celery: celery -A rest worker -l info
