@@ -24,7 +24,7 @@ class RegisterAPI(APIView):
             serializer = UserSerializer(data=data)
             if serializer.is_valid():
                 serializer.save()
-                # send_otp_email.delay(serializer.data['email'])
+                send_otp_email.delay(serializer.data['email'])
                 return Response({
                     'status': '200',
                     'message': 'you were successfully registrated, please check your email '
