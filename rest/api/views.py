@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from .models import User
 from .serializers import UserSerializer, VerifySerializer
 from .tasks import send_otp_email
-from .service import send_otp_via_email
+from django.contrib.auth.hashers import make_password
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -19,27 +19,43 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class RegisterAPI(APIView):
     def post(self, request):
-        try:
-            data = request.data
-            serializer = UserSerializer(data=data)
-            if serializer.is_valid():
-                serializer.save()
-                send_otp_email.delay(serializer.data['email'])
-                return Response({
-                    'status': '200',
-                    'message': 'you were successfully registrated, please check your email '
-                               'to verify it',
-                    'data': serializer.data
-                })
-
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            send_otp_email.delay(serializer.data['email'])
             return Response({
                 'status': '200',
-                'message': 'something went wrong',
-                'data': serializer.errors
+                'message': 'you were successfully registrated, please check your email '
+                           'to verify it',
             })
+        return Response({
+            'data': 'something went wrong(use another email)'
+        })
 
-        except Exception as e:
-            print(e)
+
+# class RegisterAPI(APIView):
+#     def post(self, request):
+#         try:
+#             data = request.data
+#             serializer = UserSerializer(data=data)
+#             if serializer.is_valid():
+#                 serializer.save()
+#                 send_otp_email.delay(serializer.data['email'])
+#                 return Response({
+#                     'status': '200',
+#                     'message': 'you were successfully registrated, please check your email '
+#                                'to verify it',
+#                     'data': serializer.data
+#                 })
+#
+#             return Response({
+#                 'status': '200',
+#                 'message': 'something went wrong',
+#                 'data': serializer.errors
+#             })
+#
+#         except Exception as e:
+#             print(e)
 
 
 class VerifyOTP(APIView):
@@ -50,7 +66,6 @@ class VerifyOTP(APIView):
             if serializer.is_valid():
                 email = serializer.data['email']
                 otp = serializer.data['otp']
-
                 user = User.objects.filter(email=email)
                 if not user.exists():
                     return Response({
@@ -68,8 +83,10 @@ class VerifyOTP(APIView):
 
                 user = user.first()
                 user.is_verified = True
-                user.save()
-
+                # dct = {'id': user.id, 'username': user.username, 'password': make_password(user.password),
+                #        'email': user.email}
+                # User.objects.delete(email=email)
+                # User.objects.create(**dct)
                 return Response({
                     'status': '200',
                     'message': 'account verified',
