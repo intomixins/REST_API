@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ff06d8a-6381-4b62-a511-b5fe4e3b23f8" name="Changes" comment="gitignore">
-      <change beforePath="$PROJECT_DIR$/.idea/rest_api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rest_api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest/rest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest/rest/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery-5.3.1.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery-5.3.1.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery-5.3.1.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery-5.3.1.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery-5.3.1.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery-5.3.1.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery-5.3.1.dist-info/entry_points.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery-5.3.1.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery/app/autoretry.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery/app/autoretry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery/bin/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery/bin/worker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery/utils/collections.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.11/site-packages/celery/utils/collections.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest/rest/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/rest/rest/celery.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
