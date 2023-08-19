@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from rest_framework import permissions, generics, viewsets
+from rest_framework import permissions, viewsets, mixins, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import User
@@ -7,7 +7,15 @@ from .serializers import UserSerializer, VerifySerializer
 from .tasks import send_otp_email
 
 
-class UserAPIView(viewsets.ModelViewSet):
+# class UserAPIView(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     permission_classes = [
+#         permissions.IsAuthenticatedOrReadOnly
+#     ]
+#     serializer_class = UserSerializer
+
+
+class UserAPIView(generics.ListAPIView):
     queryset = User.objects.all()
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
