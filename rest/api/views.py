@@ -1,15 +1,13 @@
 from django.http import JsonResponse
-from django.shortcuts import render
-from rest_framework import viewsets, permissions
+from rest_framework import permissions, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import User
 from .serializers import UserSerializer, VerifySerializer
 from .tasks import send_otp_email
-from django.contrib.auth.hashers import make_password
 
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserAPIView(generics.ListAPIView):
     queryset = User.objects.all()
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
@@ -31,31 +29,6 @@ class RegisterAPI(APIView):
         return Response({
             'data': 'something went wrong(use another email)'
         })
-
-
-# class RegisterAPI(APIView):
-#     def post(self, request):
-#         try:
-#             data = request.data
-#             serializer = UserSerializer(data=data)
-#             if serializer.is_valid():
-#                 serializer.save()
-#                 send_otp_email.delay(serializer.data['email'])
-#                 return Response({
-#                     'status': '200',
-#                     'message': 'you were successfully registrated, please check your email '
-#                                'to verify it',
-#                     'data': serializer.data
-#                 })
-#
-#             return Response({
-#                 'status': '200',
-#                 'message': 'something went wrong',
-#                 'data': serializer.errors
-#             })
-#
-#         except Exception as e:
-#             print(e)
 
 
 class VerifyOTP(APIView):
